@@ -174,14 +174,14 @@ public:
         Money = mon;
     }
 
-    void setWin(int win)
+    void setWin()
     {
-        Wins = win + 1;
+        Wins = Wins + 1;
     }
 
-    void setLoss(int loss)
+    void setLoss()
     {
-        Losses = loss + 1;
+        Losses = Losses + 1;
     }
 
     void saveCharacter(string Name)
@@ -660,12 +660,12 @@ void runGame(string Name)
             winLoss = runBattle(Name);
             if (winLoss == 'W')
             {
-                player.setWin(win);
+                player.setWin();
                 player.setMoney(money += rand() % 50 + 10);
             }
             if (winLoss == 'L')
             {
-                player.setLoss(loss);
+                player.setLoss();
             }
 
             break;
@@ -851,8 +851,13 @@ char runBattle(string Name)
     pf.close();
 
     it=1;
-    while (Ploss < Pamount && Eloss < 3)
+
+    while (Ploss < Pamount && Eloss < Pamount)
     {
+        pBlockCounter = 0;
+        eBlockCounter = 0;
+        pSpecAttackCounter = 0;
+        eSpecAttackCounter = 0;
         if (Phealth <= 0)
         {
 
@@ -1004,7 +1009,7 @@ char runBattle(string Name)
         }
         
     }
-    if (Eloss >= 3)
+    if (Eloss >= Pamount)
     {
         winLoss = 'W';
     }
