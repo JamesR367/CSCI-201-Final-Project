@@ -1,0 +1,12 @@
+Box Creatures will be a similar game to Pokémon where you battle creatures  
+and every battle you win you creature gains experience, and you get money which can be used to get different creatures. 
+	
+Type advantages:
+Type advantage only applies to color attack and if the type is stronger then it will do 2x damage and if they type is weaker then 
+it will do .5 damage. Here are the type advantages.
+
+Red > Green
+Green > Blue
+Blue > Green
+Yellow > Purple
+Purple > Yellow
