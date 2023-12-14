@@ -826,7 +826,7 @@ void runInventory(string Name)
 char runBattle(string Name)
 {
     string fileName = "Characters/" + Name + ".txt", line, text;
-    int currentLine = 0, lineNum = 2, it=1;
+    int currentLine = 0, lineNum, it=1;
     vector<int> alreadyUsed;
     char winLoss;
     bool validChoice = false;
@@ -957,11 +957,6 @@ char runBattle(string Name)
                         cout << "The enemy attacks for " << Eattack << endl;
                         Phealth -= Eattack;
                     }
-                    else
-                    {
-                        Eloss += 1;
-                        break;
-                    }
                 }
             }
             else
@@ -995,21 +990,25 @@ char runBattle(string Name)
                         cout << "You attack for " << Pattack << endl;
                         Ehealth -= Pattack;
                     }
-                    else
-                    {
-                        Ploss += 1;
-                        break;
-                    }
                 }
             }
             system("pause");
         } while (Phealth > 0 && Ehealth > 0);
+        if (Phealth<=0)
+        {
+            Ploss++;
+        }
+        if (Ehealth<=0)
+        {
+            Eloss++;
+        }
+        
     }
     if (Eloss >= 3)
     {
         winLoss = 'W';
     }
-    if (Ploss >= 3)
+    else if (Ploss >= Pamount)
     {
         winLoss = 'L';
     }
